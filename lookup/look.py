@@ -3,12 +3,14 @@
 import click
 from wordnik import *
 
+API_URL = 'http://api.wordnik.com/v4'
+
 
 class Look():
     def __init__(self, word, api_key):
         self.word = word
         self.api_key = api_key
-        self.api_url = 'http://api.wordnik.com/v4'
+        self.api_url = API_URL
         self.client = swagger.ApiClient(self.api_key, self.api_url)
         self.word_api = WordApi.WordApi(self.client)
         self.words_api = WordsApi.WordsApi(self.client)
@@ -49,9 +51,16 @@ class Look():
 
         print ''
 
-    def word_of_day(self):
-        self.words_api.getWordOfTheDay()
 
-        click.secho('Word of the day', fg='green')
-        click.secho('')
-        print ''
+def word_of_day(api_key):
+    client = swagger.ApiClient(api_key, API_URL)
+    words_api = WordsApi.WordsApi(client)
+
+    word_of_day = words_api.getWordOfTheDay()
+
+    click.secho('Word of the day', fg='green')
+
+    look = Look(word_of_day.word, api_key)
+    look.print_defn()
+
+    print ''
