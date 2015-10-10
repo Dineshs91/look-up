@@ -15,7 +15,8 @@ def is_api_set():
     return True
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Get the meaning of a word '\
+                                     'or get word of day by ignoring options')
     parser.add_argument("-w", "--word", help="Meaning of the word")
 
     # Optional arguments
@@ -24,9 +25,6 @@ def parse_args():
 
     parser.add_argument("-p", "--pronounce", help="Get pronunciation",
                         action="store_true")
-
-    #parser.add_argument("-w", "--word-of-day", help="Get word of the day",
-    #                    action="store_true")
 
     args = parser.parse_args()
 
