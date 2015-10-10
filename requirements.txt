@@ -1,0 +1,2 @@
+click==5.1
+wordnik==2.1.3
