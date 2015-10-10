@@ -18,7 +18,7 @@ setup(
     keywords = "english dictionary words",
     url = "https://github.com/Dineshs91/lookup",
     packages = ['lookup'],
-    long_description = read('README'),
+    long_description = read('README.md'),
     install_requires = [
         "click>=5.0",
         "wordnik==2.1.3"
