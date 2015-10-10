@@ -9,7 +9,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = "lookup",
+    name = "look-up",
     version = "0.1.0",
     author = "Dinesh S",
     author_email = "dineshpy07@gmail.com",
@@ -25,7 +25,7 @@ setup(
     ],
     entry_points = {
         'console_scripts': [
-            'lookup=lookup:main'
+            'look-up=lookup:main'
         ],
     }
 )
