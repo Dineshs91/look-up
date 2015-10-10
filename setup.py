@@ -22,5 +22,10 @@ setup(
     install_requires = [
         "click>=5.0",
         "wordnik==2.1.3"
-    ]
+    ],
+    entry_points = {
+        'console_scripts': [
+            'lookup=lookup:main'
+        ],
+    }
 )
