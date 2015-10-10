@@ -44,6 +44,9 @@ class Look():
         pronunciations = self.word_api.getTextPronunciations(word=self.word,
                                             limit=5)
 
+        if not pronunciations:
+            click.secho('Pronunciation not available', fg='red')
+            return
         click.secho('Pronunciation', fg='yellow')
 
         for pronunciation in pronunciations:
@@ -60,7 +63,5 @@ def word_of_day(api_key):
 
     click.secho('Word of the day', fg='green')
 
-    look = Look(word_of_day.word, api_key)
-    look.print_defn()
-
     print ''
+    return word_of_day.word

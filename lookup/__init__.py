@@ -16,17 +16,17 @@ def is_api_set():
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("word", help="Meaning of the word")
+    parser.add_argument("-w", "--word", help="Meaning of the word")
 
     # Optional arguments
-    parser.add_argument("--examples", help="Display with examples",
+    parser.add_argument("-e", "--examples", help="Display with examples",
                         action="store_true")
 
-    parser.add_argument("--pronounce", help="Get pronunciation",
+    parser.add_argument("-p", "--pronounce", help="Get pronunciation",
                         action="store_true")
 
-    parser.add_argument("-w", "--word-of-day", help="Get word of the day",
-                        action="store_true")
+    #parser.add_argument("-w", "--word-of-day", help="Get word of the day",
+    #                    action="store_true")
 
     args = parser.parse_args()
 
@@ -35,7 +35,10 @@ def parse_args():
         print 'Please set WORDNIK_API_KEY env variable \n'
         return
 
-    word = args.word
+    if not args.word:
+        word = word_of_day(WORDNIK_API_KEY)
+    else:
+        word = args.word
 
     # Initialize look object
     look = Look(word, WORDNIK_API_KEY)
@@ -44,9 +47,6 @@ def parse_args():
     if not look.is_valid_word():
         print 'Unable to find %s in dictionary' %word
         return
-
-    if args.word_of_day:
-        word_of_day(WORDNIK_API_KEY)
 
     # Print definition of word by default
     look.print_defn()
