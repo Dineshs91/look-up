@@ -17,9 +17,7 @@ class Look():
 
     def is_valid_word(self):
         defn = self.word_api.getDefinitions(self.word)
-        if defn:
-            return True
-        return False
+        return bool(defn)
 
     def print_defn(self):
         defn = self.word_api.getDefinitions(self.word)
