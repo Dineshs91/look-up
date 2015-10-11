@@ -2,6 +2,8 @@
 
 Get the meaning of a word on your terminal
 
+![demo](look-up-demo.gif "look-up demo")
+
 ## Install
 
 ```$ pip install look-up```
