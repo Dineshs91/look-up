@@ -2,7 +2,7 @@
 
 Get the meaning of a word on your terminal.
 
-Powered by [wordnik](http://developer.wordnik.com/).
+Powered by [Wordnik](http://developer.wordnik.com/).
 
 ![demo](look-up-demo.gif "look-up demo")
 
